@@ -1,0 +1,13 @@
+﻿{
+  "profiles": {
+    "WarehouseService.Api": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5070;https://localhost:5071",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

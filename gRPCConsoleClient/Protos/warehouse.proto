@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "WarehouseService.Api";
+
+package warehouse;
+
+service WarehouseService {
+	rpc GetWarehouseState (GetWarehouseStateRequest) returns (GetWarehouseStateResponse);
+	rpc IncrementWarehouseState (stream IncrementWarehouseStateRequest) returns (IncrementWarehouseStateResponse);
+	rpc SubscribeWarehouseState(SubscribeWarehouseStateRequest) returns (stream GetWarehouseStateResponse);
+}
+message SubscribeWarehouseStateRequest {
+	int32 product_id = 1;
+	int32 limit_quantity = 2;
+}
+message IncrementWarehouseStateResponse {
+	bool is_confirmed = 1;
+}
+
+message IncrementWarehouseStateRequest {
+	int32 warehouse_id = 1;
+	int32 product_id = 2;
+	int32 quantity = 3;
+}
+
+message GetWarehouseStateRequest {
+	int32 warehouse_id = 1;
+	int32 product_id = 2;
+}
+
+message GetWarehouseStateResponse {
+	bool  is_available = 1;
+	int32 quantity = 2;
+}
