@@ -2,11 +2,11 @@
 Console.WriteLine("Hello, World!");
 
 AppDomain currentDomain = AppDomain.CurrentDomain;
-currentDomain.UnhandledException += (object sender, UnhandledExceptionEventArgs e) =>
+currentDomain.UnhandledException += (object sender, UnhandledExceptionEventArgs args) =>
 {
     Exception e = (Exception)args.ExceptionObject;
 
-    Console.WriteLine("MyHandler caught: " + e.Message);
+    Console.WriteLine("MyHandler caught : " + e.Message);
     Console.WriteLine("Runtime terminating: {0}", args.IsTerminating);
 };
 
