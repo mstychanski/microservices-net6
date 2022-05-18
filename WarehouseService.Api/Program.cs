@@ -35,4 +35,8 @@ app.UseDirectoryBrowser(new DirectoryBrowserOptions //Metoda aby wystawiæ plik .
 
 });
 
+
+//Grpc.AspNetCore.HealthCore
+app.MapGrpcHealthChecksService();
+
 app.Run();
