@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.JsonPatch;
 using MediatR;
 using CustomerService.Api.Notifications;
 using CustomerService.Api.Queries;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CustomerService.Api.Controllers
 {
@@ -28,12 +29,13 @@ namespace CustomerService.Api.Controllers
             return "Pong";
         }
 
+        [Authorize]
         [HttpGet]
-        public async Task<IEnumerable<Customer>> Get()
+        public async Task<ActionResult<IEnumerable<Customer>>> Get()
         {
             var customers = await mediator.Send(new GetCustomersQuery());
 
-            return customers;
+            return Ok(customers);
         }
 
         [HttpGet("{pesel:length(11)}")]

@@ -2,6 +2,9 @@ using Bogus;
 using CustomerService.Domain;
 using CustomerService.Infrastructure;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +23,25 @@ builder.Services.AddSingleton<Faker<Customer>, CustomerFaker>();
 
 builder.Services.AddSingleton<IMessageSender, FakeConsoleMessageSender>();
 
+builder.Services.AddHealthChecks();
+
+var key = Encoding.UTF8.GetBytes("your-256-bit-secret");
+//dotnet add package Microsoft.AspNetCore.Authentication.JwtBearer
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        ValidateIssuer = false,
+        ValidateAudience = true,
+        ValidAudience = "KEPS"
+    };
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,6 +53,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication(); //Kolejnoœæ jest tutaj wa¿na!!! Autentykacja to sprawdzanie kim ktoœ jest a autoryzacja czy ma dostêp!!!!!
 app.UseAuthorization();
 
 app.MapControllers();
