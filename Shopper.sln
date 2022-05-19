@@ -55,17 +55,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRConsoleReceiver", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WarehouseService", "WarehouseService", "{AC6D83EA-626B-4F42-81A7-E146D1DD9BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseService.Api", "WarehouseService.Api\WarehouseService.Api.csproj", "{960BD1DE-1D55-4BBE-8701-254067FF969B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseService.Api", "WarehouseService.Api\WarehouseService.Api.csproj", "{960BD1DE-1D55-4BBE-8701-254067FF969B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPCConsoleClient", "gRPCConsoleClient\gRPCConsoleClient.csproj", "{1E9558FB-D770-4E02-BE2B-02A1F06A7EBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gRPCConsoleClient", "gRPCConsoleClient\gRPCConsoleClient.csproj", "{1E9558FB-D770-4E02-BE2B-02A1F06A7EBF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeliveryService", "DeliveryService", "{B27A790B-5016-41D2-BE8D-80215F79FC30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryService.Api", "DeliveryService.Api\DeliveryService.Api.csproj", "{09FB2A5D-398F-4324-BE38-C31AFE3D7333}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryService.Api", "DeliveryService.Api\DeliveryService.Api.csproj", "{09FB2A5D-398F-4324-BE38-C31AFE3D7333}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryService.Contracts", "DeliveryService.Contracts\DeliveryService.Contracts.csproj", "{9D429DED-41B7-422F-8F63-5FD6CB8E007C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryService.Contracts", "DeliveryService.Contracts\DeliveryService.Contracts.csproj", "{9D429DED-41B7-422F-8F63-5FD6CB8E007C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPCCodeFirstConsoleClient", "gRPCCodeFirstConsoleClient\gRPCCodeFirstConsoleClient.csproj", "{831612A3-A467-465A-A89B-259021AD328C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "gRPCCodeFirstConsoleClient", "gRPCCodeFirstConsoleClient\gRPCCodeFirstConsoleClient.csproj", "{831612A3-A467-465A-A89B-259021AD328C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InvoiceServices", "InvoiceServices", "{6B6C7029-996B-4578-8A08-2CFA56BAF126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceService.Infrastructure", "InvoiceService.Infrastructure\InvoiceService.Infrastructure.csproj", "{67EA6FE3-4F83-459B-9459-F44466CEE7FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceService.Domain", "InvoiceService.Domain\InvoiceService.Domain.csproj", "{940F92A3-0136-492A-AC6A-7521638E8296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceService.Api", "InvoiceService.Api\InvoiceService.Api.csproj", "{D642897B-35AD-417E-B830-BDB9EB74B827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +169,18 @@ Global
 		{831612A3-A467-465A-A89B-259021AD328C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{831612A3-A467-465A-A89B-259021AD328C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{831612A3-A467-465A-A89B-259021AD328C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EA6FE3-4F83-459B-9459-F44466CEE7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EA6FE3-4F83-459B-9459-F44466CEE7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EA6FE3-4F83-459B-9459-F44466CEE7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EA6FE3-4F83-459B-9459-F44466CEE7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{940F92A3-0136-492A-AC6A-7521638E8296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{940F92A3-0136-492A-AC6A-7521638E8296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{940F92A3-0136-492A-AC6A-7521638E8296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{940F92A3-0136-492A-AC6A-7521638E8296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D642897B-35AD-417E-B830-BDB9EB74B827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D642897B-35AD-417E-B830-BDB9EB74B827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D642897B-35AD-417E-B830-BDB9EB74B827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D642897B-35AD-417E-B830-BDB9EB74B827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -195,6 +215,10 @@ Global
 		{09FB2A5D-398F-4324-BE38-C31AFE3D7333} = {B27A790B-5016-41D2-BE8D-80215F79FC30}
 		{9D429DED-41B7-422F-8F63-5FD6CB8E007C} = {B27A790B-5016-41D2-BE8D-80215F79FC30}
 		{831612A3-A467-465A-A89B-259021AD328C} = {97A325CD-97FB-4596-859B-A0E8BA1973BF}
+		{6B6C7029-996B-4578-8A08-2CFA56BAF126} = {9B721336-33B4-41A4-8C6D-444AC9AC85AB}
+		{67EA6FE3-4F83-459B-9459-F44466CEE7FC} = {6B6C7029-996B-4578-8A08-2CFA56BAF126}
+		{940F92A3-0136-492A-AC6A-7521638E8296} = {6B6C7029-996B-4578-8A08-2CFA56BAF126}
+		{D642897B-35AD-417E-B830-BDB9EB74B827} = {6B6C7029-996B-4578-8A08-2CFA56BAF126}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70D87B49-DF67-4324-8A4A-E8E101724080}
