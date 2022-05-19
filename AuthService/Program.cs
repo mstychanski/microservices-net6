@@ -1,5 +1,9 @@
 using AuthService.Domain;
+using AuthService.Infrastructure;
 using AuthService.Models;
+using Bogus;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IAuthService, MyAuthService>();
+builder.Services.AddSingleton<ITokenService, JwtTokenService>();
+builder.Services.AddSingleton<IUserRepository, FakeUserRepository>();
+builder.Services.AddSingleton<Faker<User>, UserFaker>();
+builder.Services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
 
 var app = builder.Build();
 
@@ -19,21 +29,29 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("api/toen/create", async (AuthModel model, IAuthService authService) =>
+app.MapPost("api/token/create", async ([FromForm] AuthModel model, IAuthService authService, ITokenService tokenService, HttpContext context) =>
 {
-    if (await authService.TryAuthorizeAsync(model.Login, model.Password, out User user))
-    {
+    var result = await authService.TryAuthorizeAsync(model.Login, model.Password);
+  
+        if (result.isValid)
+        {
+            var token = tokenService.Create(result.user);
+
+            context.Response.Cookies.Append("X-Access-Token", token, //zapisywanie do ciasteczka
+                new CookieOptions
+                {
+                    Expires = DateTime.Now.AddMinutes(30),
+                    SameSite = SameSiteMode.Strict,
+                    Secure = true
+                });
+
+            return Results.Ok(token);
+        }
         // TODO: generate token
-        throw new NotImplementedException();
-
-        string token = "";
-
-        return Results.Ok(token);
-    }
-    else
-    {
-        return Results.BadRequest(new { message = "Username or password is incorrect." });
-    }
+        else
+        {
+            return Results.BadRequest(new { message = "Username or password is incorrect." });
+        }
 });
 
 app.Run();

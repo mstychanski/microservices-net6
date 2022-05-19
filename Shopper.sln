@@ -77,9 +77,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvoiceService.Api", "Invoi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthService", "AuthService", "{8FBC0B26-F7B1-4828-93B8-BCACA33AD29F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "AuthService\AuthService.csproj", "{6A98D575-AFB6-4710-A896-1CFD43745444}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Api", "AuthService\AuthService.Api.csproj", "{6A98D575-AFB6-4710-A896-1CFD43745444}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Domain", "AuthService.Domain\AuthService.Domain.csproj", "{5EB24433-4218-40CA-8A2F-A4C83F7FA349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Domain", "AuthService.Domain\AuthService.Domain.csproj", "{5EB24433-4218-40CA-8A2F-A4C83F7FA349}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Infrastructure", "AuthService.Infrastructure\AuthService.Infrastructure.csproj", "{A3450067-737A-4821-8ABD-E2ED1DD302D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -195,6 +197,10 @@ Global
 		{5EB24433-4218-40CA-8A2F-A4C83F7FA349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EB24433-4218-40CA-8A2F-A4C83F7FA349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EB24433-4218-40CA-8A2F-A4C83F7FA349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3450067-737A-4821-8ABD-E2ED1DD302D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3450067-737A-4821-8ABD-E2ED1DD302D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3450067-737A-4821-8ABD-E2ED1DD302D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3450067-737A-4821-8ABD-E2ED1DD302D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -236,6 +242,7 @@ Global
 		{8FBC0B26-F7B1-4828-93B8-BCACA33AD29F} = {9B721336-33B4-41A4-8C6D-444AC9AC85AB}
 		{6A98D575-AFB6-4710-A896-1CFD43745444} = {8FBC0B26-F7B1-4828-93B8-BCACA33AD29F}
 		{5EB24433-4218-40CA-8A2F-A4C83F7FA349} = {8FBC0B26-F7B1-4828-93B8-BCACA33AD29F}
+		{A3450067-737A-4821-8ABD-E2ED1DD302D8} = {8FBC0B26-F7B1-4828-93B8-BCACA33AD29F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70D87B49-DF67-4324-8A4A-E8E101724080}
