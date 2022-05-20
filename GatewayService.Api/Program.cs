@@ -10,5 +10,5 @@ app.MapGet("/", () => "Hello Gateway Api!!");
 
 
 app.MapReverseProxy();
-s
+
 app.Run();

@@ -11,9 +11,9 @@ using System.Security.Claims;
 namespace CustomerService.Api.Controllers
 {
 
-    [Authorize] //Wszystkie metody kontrolera dostają authorize
+    //[Authorize] //Wszystkie metody kontrolera dostają authorize
     [ApiController]
-    [Route("api/customers")]
+    [Route("customers")]
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerRepository customerRepository;
@@ -33,19 +33,19 @@ namespace CustomerService.Api.Controllers
             return "Pong";
         }
 
-        [Authorize(Roles = "Developer")]
+        //[Authorize(Roles = "Developer")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> Get()
         {
 
-            if(!this.User.Identity.IsAuthenticated) //tak można to sprawdzić IFami
-            {
-                return Unauthorized();
-            }
-            if(!this.User.IsInRole("Developer"))
-            {
-                return Forbid();
-            }
+            //if(!this.User.Identity.IsAuthenticated) //tak można to sprawdzić IFami
+            //{
+            //    return Unauthorized();
+            //}
+            //if(!this.User.IsInRole("Developer"))
+            //{
+            //    return Forbid();
+            //}
             var customers = await mediator.Send(new GetCustomersQuery());
 
             return Ok(customers);

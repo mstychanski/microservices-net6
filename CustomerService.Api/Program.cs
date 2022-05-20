@@ -77,7 +77,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication(); //Kolejnoœæ jest tutaj wa¿na!!! Autentykacja to sprawdzanie kim ktoœ jest a autoryzacja czy ma dostêp!!!!!
 app.UseAuthorization();
 
-app.MapControllers().RequireAuthorization(); ///RequireAuthorization() nak³ada na wszystkie controllery [Authorize]
+app.MapControllers();//.RequireAuthorization(); ///RequireAuthorization() nak³ada na wszystkie controllery [Authorize]
 
 app.MapHealthChecks("/health");
 //app.UseEndpoints(endpoints =>
