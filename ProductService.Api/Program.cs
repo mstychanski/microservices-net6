@@ -19,9 +19,28 @@ builder.Services.AddSingleton<Faker<Product>, ProductFaker>();
 
 builder.Services.AddHttpClient();
 
+//string instance = builder.Configuration["instance"]; //For HealthCheck in YARP purpose only
+
 builder.Services.AddHealthChecks()
     .AddCheck<NbpApiHealthCheck>("NbpApi")
-    .AddCheck("Sample", () => HealthCheckResult.Healthy("Lorem Ipsum"));
+    .AddCheck("Sample", () => {
+
+        ////For HealthCheck in YARP purpose only
+        
+        //if(instance=="B") 
+        //{
+        //    if(new Random().Next(1, 10) % 2 == 0)
+        //    {
+        //        return HealthCheckResult.Unhealthy();
+        //    }
+        //    else
+        //    {
+        //        return HealthCheckResult.Healthy();
+        //    }
+        //}
+        return HealthCheckResult.Healthy("Lorem Ipsum");
+
+        });
 
 //ASPNetCore.HealthChecks.UI
 builder.Services.AddHealthChecksUI()
