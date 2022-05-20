@@ -81,7 +81,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Api", "AuthServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Domain", "AuthService.Domain\AuthService.Domain.csproj", "{5EB24433-4218-40CA-8A2F-A4C83F7FA349}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService.Infrastructure", "AuthService.Infrastructure\AuthService.Infrastructure.csproj", "{A3450067-737A-4821-8ABD-E2ED1DD302D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService.Infrastructure", "AuthService.Infrastructure\AuthService.Infrastructure.csproj", "{A3450067-737A-4821-8ABD-E2ED1DD302D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{BD67A44F-0402-41BB-9733-92DB28AF3538}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DriverService", "DriverService", "{6B8E1E44-E00D-46B3-8C7B-B0EEF06C4A0A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriverService.Api", "DriverService.Api\DriverService.Api.csproj", "{6B14AC3D-E643-458F-9D9F-1EC28EC82E0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -201,6 +207,10 @@ Global
 		{A3450067-737A-4821-8ABD-E2ED1DD302D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3450067-737A-4821-8ABD-E2ED1DD302D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3450067-737A-4821-8ABD-E2ED1DD302D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B14AC3D-E643-458F-9D9F-1EC28EC82E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B14AC3D-E643-458F-9D9F-1EC28EC82E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B14AC3D-E643-458F-9D9F-1EC28EC82E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B14AC3D-E643-458F-9D9F-1EC28EC82E0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,6 +253,9 @@ Global
 		{6A98D575-AFB6-4710-A896-1CFD43745444} = {8FBC0B26-F7B1-4828-93B8-BCACA33AD29F}
 		{5EB24433-4218-40CA-8A2F-A4C83F7FA349} = {8FBC0B26-F7B1-4828-93B8-BCACA33AD29F}
 		{A3450067-737A-4821-8ABD-E2ED1DD302D8} = {8FBC0B26-F7B1-4828-93B8-BCACA33AD29F}
+		{BD67A44F-0402-41BB-9733-92DB28AF3538} = {9B721336-33B4-41A4-8C6D-444AC9AC85AB}
+		{6B8E1E44-E00D-46B3-8C7B-B0EEF06C4A0A} = {9B721336-33B4-41A4-8C6D-444AC9AC85AB}
+		{6B14AC3D-E643-458F-9D9F-1EC28EC82E0C} = {6B8E1E44-E00D-46B3-8C7B-B0EEF06C4A0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70D87B49-DF67-4324-8A4A-E8E101724080}
