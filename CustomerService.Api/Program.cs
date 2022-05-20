@@ -1,9 +1,12 @@
 using Bogus;
+using CustomerService.Api.AuthenticationHandlers;
 using CustomerService.Domain;
 using CustomerService.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,7 +44,18 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = "KEPS"
     };
 });
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Adult",
+        policy =>
+        {
+            policy.RequireAuthenticatedUser();
+            policy.RequireClaim(ClaimTypes.DateOfBirth);
+            policy.RequireAge(18);
+        });
+});
 
+builder.Services.AddScoped<IAuthorizationHandler, MinimalAgeHandler>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -56,7 +70,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication(); //Kolejnoœæ jest tutaj wa¿na!!! Autentykacja to sprawdzanie kim ktoœ jest a autoryzacja czy ma dostêp!!!!!
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers().RequireAuthorization(); ///RequireAuthorization() nak³ada na wszystkie controllery [Authorize]
 
 app.MapHealthChecks("/health");
 //app.UseEndpoints(endpoints =>

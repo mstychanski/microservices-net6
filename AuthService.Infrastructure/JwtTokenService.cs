@@ -19,7 +19,12 @@ namespace AuthService.Infrastructure
                 {
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),//Korzystajmy z standardowych nazw zapisanych aby inne frameworki z tego mogły korzystać
                     new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()), //Unikalny numer każdego tokenu
-                    new Claim(JwtRegisteredClaimNames.GivenName, user.LastName)
+                    new Claim(JwtRegisteredClaimNames.GivenName, user.LastName),
+
+                    new Claim(ClaimTypes.Role, "Developer"),
+                    new Claim(ClaimTypes.Role, "Administrator"),
+
+                new Claim(ClaimTypes.DateOfBirth, user.Birthday.ToShortDateString()),
                 };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));

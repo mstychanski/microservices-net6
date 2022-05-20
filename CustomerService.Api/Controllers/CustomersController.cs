@@ -6,9 +6,12 @@ using MediatR;
 using CustomerService.Api.Notifications;
 using CustomerService.Api.Queries;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace CustomerService.Api.Controllers
 {
+
+    [Authorize] //Wszystkie metody kontrolera dostają authorize
     [ApiController]
     [Route("api/customers")]
     public class CustomersController : ControllerBase
@@ -21,18 +24,28 @@ namespace CustomerService.Api.Controllers
         {
             this.customerRepository = customerRepository;
             this.mediator = mediator;
-        }      
+        }
 
+        [AllowAnonymous] //Pozwala na przejście bez autoryzacji
         [HttpGet("ping")]
         public string Ping()
         {
             return "Pong";
         }
 
-        [Authorize]
+        [Authorize(Roles = "Developer")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> Get()
         {
+
+            if(!this.User.Identity.IsAuthenticated) //tak można to sprawdzić IFami
+            {
+                return Unauthorized();
+            }
+            if(!this.User.IsInRole("Developer"))
+            {
+                return Forbid();
+            }
             var customers = await mediator.Send(new GetCustomersQuery());
 
             return Ok(customers);
@@ -92,11 +105,14 @@ namespace CustomerService.Api.Controllers
         //}
 
         // POST localhost:5000/api/customers
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesDefaultResponseType]
         [HttpPost]
         public async Task<ActionResult<Customer>> Post(Customer customer)
         {
+            var email = User.FindFirstValue(ClaimTypes.Email);
+
             await mediator.Publish(new AddCustomerNotification(customer));
 
             return CreatedAtRoute("GetCustomerById", new { id = customer.Id }, customer);
@@ -104,6 +120,9 @@ namespace CustomerService.Api.Controllers
 
         // PUT  localhost:5000/api/customers/{id}
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult> Put(int id, Customer customer)
         {
             if (id != customer.Id)
@@ -136,5 +155,4 @@ namespace CustomerService.Api.Controllers
         //{
         //}
     }
-
 }

@@ -21,6 +21,8 @@ namespace AuthService.Infrastructure
             RuleFor(p => p.Email, f => f.Person.Email);
             RuleFor(p => p.Phone, f => f.Person.Phone);
             RuleFor(p => p.UserName, f => f.Person.UserName);
+            RuleFor(p => p.Gender, f => (Gender)f.Person.Gender);
+            RuleFor(p => p.Birthday, f => f.Person.DateOfBirth);
         }
     }
 }
