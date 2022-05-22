@@ -9,6 +9,16 @@ using ProductService.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string env = builder.Environment.EnvironmentName;
+
+builder.Configuration.AddJsonFile("appsettings.development.json", optional: true);
+builder.Configuration.AddJsonFile("appsettings.mateusz.json", optional: true);
+builder.Configuration.AddXmlFile("appsettings.xml", optional: true);
+builder.Configuration.AddEnvironmentVariables();
+builder.Configuration.AddCommandLine(args);
+builder.Configuration.AddJsonFile($"appsettings.{env}.json", optional: true);
+builder.Configuration.AddUserSecrets<Program>();
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -19,7 +29,14 @@ builder.Services.AddSingleton<Faker<Product>, ProductFaker>();
 
 builder.Services.AddHttpClient();
 
-//string instance = builder.Configuration["instance"]; //For HealthCheck in YARP purpose only
+//string instance = builder.Configuration["instance"]; //For HealthCheck in YARP purpose only. Enables running app in cmd with property instance.
+
+//string nbpApiUrl = builder.Configuration["NBPApi:Url"];
+//string nbpApiTable = builder.Configuration["NBPApi:Table"];
+
+string googleMaps = builder.Configuration["GoogleMaps:LicenseKey"];
+
+builder.Services.Configure<NbpApiHealthCheckOptions>(builder.Configuration.GetSection("NBPApi"));
 
 builder.Services.AddHealthChecks()
     .AddCheck<NbpApiHealthCheck>("NbpApi")

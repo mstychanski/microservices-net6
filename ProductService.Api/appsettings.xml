@@ -1,0 +1,7 @@
+﻿<configuration> 
+  <NBPApi>
+    <Table>C</Table>
+    <Format>csv</Format>
+  </NBPApi>
+
+</configuration>
