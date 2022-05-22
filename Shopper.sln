@@ -89,7 +89,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriverService.Api", "Driver
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GatewayService", "GatewayService", "{FAFE65C3-19C8-4DEE-8EF8-F788E7D01CDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayService.Api", "GatewayService.Api\GatewayService.Api.csproj", "{AE3BC7F4-FF30-4551-BF52-71D04D7ADE1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GatewayService.Api", "GatewayService.Api\GatewayService.Api.csproj", "{AE3BC7F4-FF30-4551-BF52-71D04D7ADE1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShoppingCartService", "ShoppingCartService", "{C250D072-7C91-4478-AF73-3060F7F63EB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartService.Domain", "ShoppingCartService.Domain\ShoppingCartService.Domain.csproj", "{0AD4382C-0A3D-495E-8F0A-10601FF3EA50}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCartService.Infrastructure", "ShoppingCartService.Infrastructure\ShoppingCartService.Infrastructure.csproj", "{8E1162D6-C85E-4C52-9CC8-7DE9FB5FD032}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCartService.Api", "ShoppingCartService.Api\ShoppingCartService.Api.csproj", "{42FAB0C6-BB35-4550-B52E-32696A75B516}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -217,6 +225,18 @@ Global
 		{AE3BC7F4-FF30-4551-BF52-71D04D7ADE1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE3BC7F4-FF30-4551-BF52-71D04D7ADE1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE3BC7F4-FF30-4551-BF52-71D04D7ADE1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD4382C-0A3D-495E-8F0A-10601FF3EA50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD4382C-0A3D-495E-8F0A-10601FF3EA50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD4382C-0A3D-495E-8F0A-10601FF3EA50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD4382C-0A3D-495E-8F0A-10601FF3EA50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E1162D6-C85E-4C52-9CC8-7DE9FB5FD032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E1162D6-C85E-4C52-9CC8-7DE9FB5FD032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E1162D6-C85E-4C52-9CC8-7DE9FB5FD032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E1162D6-C85E-4C52-9CC8-7DE9FB5FD032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42FAB0C6-BB35-4550-B52E-32696A75B516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42FAB0C6-BB35-4550-B52E-32696A75B516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42FAB0C6-BB35-4550-B52E-32696A75B516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42FAB0C6-BB35-4550-B52E-32696A75B516}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -263,6 +283,10 @@ Global
 		{6B14AC3D-E643-458F-9D9F-1EC28EC82E0C} = {6B8E1E44-E00D-46B3-8C7B-B0EEF06C4A0A}
 		{FAFE65C3-19C8-4DEE-8EF8-F788E7D01CDD} = {9B721336-33B4-41A4-8C6D-444AC9AC85AB}
 		{AE3BC7F4-FF30-4551-BF52-71D04D7ADE1B} = {FAFE65C3-19C8-4DEE-8EF8-F788E7D01CDD}
+		{C250D072-7C91-4478-AF73-3060F7F63EB5} = {9B721336-33B4-41A4-8C6D-444AC9AC85AB}
+		{0AD4382C-0A3D-495E-8F0A-10601FF3EA50} = {C250D072-7C91-4478-AF73-3060F7F63EB5}
+		{8E1162D6-C85E-4C52-9CC8-7DE9FB5FD032} = {C250D072-7C91-4478-AF73-3060F7F63EB5}
+		{42FAB0C6-BB35-4550-B52E-32696A75B516} = {C250D072-7C91-4478-AF73-3060F7F63EB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70D87B49-DF67-4324-8A4A-E8E101724080}
